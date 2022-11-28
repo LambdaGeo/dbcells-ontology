@@ -57,6 +57,10 @@
                 rdfs:subPropertyOf sdmx-measure:obsValue ;
                 rdfs:range xsd:decimal .
 
+:agric rdf:type owl:DatatypeProperty ;
+                rdfs:label "Agriculture"@en;
+                rdfs:subPropertyOf sdmx-measure:obsValue ;
+                rdfs:range xsd:decimal .
 
 :fores rdf:type owl:DatatypeProperty ;
                 rdfs:label "Forestry"@en;
