@@ -21,6 +21,14 @@
 # -- Dimensions  ----------------------------
 
 
+:drivers a skos:ConceptScheme;
+    rdfs:label "Drivers"@en;
+
+
+:roads a skos:Concept
+    rdfs:label "Roads"@en;
+    skos:inScheme :drivers .
+
 
 # -- Attributes  ----------------------------
 
