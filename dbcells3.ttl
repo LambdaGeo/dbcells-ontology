@@ -10,7 +10,7 @@
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
 
-@prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/>
+@prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
 
 @base <http://www.purl.org/linked-data/dbcells#> .
@@ -22,6 +22,12 @@
 
 
 
+# -- Attributes  ----------------------------
+
+
+
+
+
 # -- Measures  ----------------------------
 
 :distance  a rdf:Property, qb:MeasureProperty;
@@ -29,5 +35,5 @@
     rdfs:subPropertyOf sdmx-measure:obsValue;
     owl:sameAs sweet-distance:Distance;
     rdfs:range xsd:decimal ;
-
+    .
 
