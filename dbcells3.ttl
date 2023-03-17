@@ -26,37 +26,3 @@
 
 <http://www.purl.org/linked-data/dbcells#> rdf:type owl:Ontology .
 
-
-# -- Dimensions  ----------------------------
-
-
-
-
-
-
-
-
-
-# -- dataset -----------------
-eg:dataset-ex a qb:DataSet;
-    dct:title       "Example"@en;
-
-# -- Observations  ----------------------------
-
-
-eg:o11 a qb:Observation;
-    qb:dataSet  eg:ex ;
-    sdmx-dimension:refArea ex-geo:geo2 ;                  
-    :distance          76.7 ;
-    :drivers  dbc-code:roads;
-    
-    .
-
-
-eg:o12 a qb:Observation;
-    qb:dataSet  eg:ex1 ;
-    sdmx-dimension:refArea ex-geo:geo1 ;                  
-    :distance          186.7 ;
-    :drivers  dbc-code:urban;
-    
-    .
