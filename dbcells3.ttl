@@ -16,6 +16,8 @@
 
 
 @prefix dbc-code:   <http://www.purl.org/linked-data/dbcells/code#> .
+@prefix dbc-measure:   <http://www.purl.org/linked-data/dbcells/measure#> .
+@prefix dbc-attribute:   <http://www.purl.org/linked-data/dbcells/attribute#> .
 @prefix eg:       <http://example.org/ns#> .
 
 @prefix ex-geo:   <http://example.org/geo#> .
@@ -24,7 +26,6 @@
 
 <http://www.purl.org/linked-data/dbcells#> rdf:type owl:Ontology .
 
-    .
 
 # -- Dimensions  ----------------------------
 
