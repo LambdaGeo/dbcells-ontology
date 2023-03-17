@@ -33,19 +33,19 @@ dbc-code:drivers a skos:ConceptScheme,  sdmx:CodeList;
     .
 
 
-sdmx-code:Drivers a rdfs:Class, owl:Class;
+dbc-code:Drivers a rdfs:Class, owl:Class;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Code list for Drivers - codelist class"@en;
     rdfs:comment """This  code list provides ...."""@en;
-    rdfs:seeAlso sdmx-code:sex .
+    rdfs:seeAlso dbc-code:drivers .
 
 
-dbc-code:roads a skos:Concept, sdmx:Concept, sdmx-code:Drivers;
+dbc-code:roads a skos:Concept, sdmx:Concept, dbc-code:Drivers;
     rdfs:label "Roads"@en;
     skos:inScheme dbc-code:drivers .
 
 
-dbc-code:urban a skos:Concept, sdmx:Concept, sdmx-code:Drivers;
+dbc-code:urban a skos:Concept, sdmx:Concept, dbc-code:Drivers;
     rdfs:label "Urban"@en;
     skos:inScheme :drivers .
 
