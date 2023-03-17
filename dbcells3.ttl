@@ -6,6 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix interval: <http://reference.data.gov.uk/def/intervals/> .
+@prefix sdmx:    <http://purl.org/linked-data/sdmx#> .
 @prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
@@ -13,7 +14,7 @@
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
 
-@prefix dbc-concept:   <<http://www.purl.org/linked-data/dbcells/concept#> .
+@prefix dbc-code:   <<http://www.purl.org/linked-data/dbcells/concept#> .
 @prefix eg:       <http://example.org/ns#> .
 
 @prefix ex-geo:   <http://example.org/geo#> .
@@ -25,17 +26,26 @@
 
 # -- Concepts  ----------------------------
 
+# code list
 
-dbc-concept:drivers a skos:ConceptScheme;
+dbc-code:drivers a skos:ConceptScheme,  sdmx:CodeList;
     rdfs:label "Drivers"@en;
+    .
 
 
-dbc-concept:roads a skos:Concept
+sdmx-code:Drivers a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Code list for Drivers - codelist class"@en;
+    rdfs:comment """This  code list provides ...."""@en;
+    rdfs:seeAlso sdmx-code:sex .
+
+
+dbc-code:roads a skos:Concept, sdmx:Concept, sdmx-code:Drivers;
     rdfs:label "Roads"@en;
-    skos:inScheme :drivers .
+    skos:inScheme dbc-code:drivers .
 
 
-dbc-concept:urban a skos:Concept
+dbc-code:urban a skos:Concept, sdmx:Concept, sdmx-code:Drivers;
     rdfs:label "Urban"@en;
     skos:inScheme :drivers .
 
@@ -51,7 +61,7 @@ dbc-concept:urban a skos:Concept
 
  :drivers a qb:AttributeProperty ;
   rdfs:label "Driver Category" ;
-  qb:concept dbc-concept:drivers .
+  qb:codeList  dbc-code:drivers .
 
 
 
@@ -70,7 +80,16 @@ dbc-concept:urban a skos:Concept
 
 
 eg:o11 a qb:Observation;
-    sdmx-dimension:refArea       ex-geo:newport_00pr ;                  
+    sdmx-dimension:refArea ex-geo:newport_00pr ;                  
     :distance          76.7 ;
+    :drivers  dbc-code:roads;
+    
+    .
+
+
+eg:o11 a qb:Observation;
+    sdmx-dimension:refArea ex-geo:newport_00pr ;                  
+    :distance          186.7 ;
+    :drivers  dbc-code:urba;
     
     .
