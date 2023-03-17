@@ -14,8 +14,6 @@
 
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
-
-@prefix :   <<http://www.purl.org/linked-data/dbcells/concept#> .
 @prefix eg:       <http://example.org/ns#> .
 
 @prefix ex-geo:   <http://example.org/geo#> .
