@@ -10,6 +10,7 @@
 @prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
 
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
@@ -23,7 +24,10 @@
 
 <http://www.purl.org/linked-data/dbcells#> rdf:type owl:Ontology .
 
-
+# -- dataset -----------------
+eg:dataset-ex a qb:DataSet;
+    dct:title       "Example"@en;
+    .
 
 # -- Dimensions  ----------------------------
 
@@ -53,6 +57,7 @@
 
 
 eg:o11 a qb:Observation;
+    qb:dataSet  eg:ex ;
     sdmx-dimension:refArea ex-geo:geo2 ;                  
     :distance          76.7 ;
     :drivers  dbc-code:roads;
@@ -61,6 +66,7 @@ eg:o11 a qb:Observation;
 
 
 eg:o12 a qb:Observation;
+    qb:dataSet  eg:ex1 ;
     sdmx-dimension:refArea ex-geo:geo1 ;                  
     :distance          186.7 ;
     :drivers  dbc-code:urban;
