@@ -40,7 +40,7 @@
 :input-data  a rdf:Property, qb:AttributeProperty;
     rdfs:label "input-data"@en;
     rdfs:domain rdfs:Resource
-    rdfs:range rdfs:Resource
+    rdfs:range  rdfs:Resource
     .
 
 :script  a rdf:Property, qb:AttributeProperty;
