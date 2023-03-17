@@ -87,7 +87,7 @@ eg:o11 a qb:Observation;
     .
 
 
-eg:o11 a qb:Observation;
+eg:o12 a qb:Observation;
     sdmx-dimension:refArea ex-geo:newport_00pr ;                  
     :distance          186.7 ;
     :drivers  dbc-code:urba;
