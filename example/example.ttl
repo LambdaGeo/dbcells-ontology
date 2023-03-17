@@ -29,10 +29,10 @@
 
 # -- dataset -----------------
 eg:dataset-ex a qb:DataSet;
-    dct:title       "Example"@en;
-    dbc-attribute:drivers  dbc-code:roads;
-    dbc-attribute:input-data <https://github.com/dbcells/temodel/raw/main/data/urban_center.zip>;
-    dbc-attribute:script <https://raw.githubusercontent.com/dbcells/temodel/main/scripts/fill_urban_distance.lua>;
+    dct:title  "Example"@en;
+    dbc-attribute:inputData  dbc-code:roads;
+    dbc-attribute:urlData <https://github.com/dbcells/brlucc/raw/main/data/urban_center.zip>;
+    dbc-attribute:urlScript <https://raw.githubusercontent.com/dbcells/brlucc/main/scripts/fill_urban_distance.lua>;
 
     .
 # -- Observations  ----------------------------
