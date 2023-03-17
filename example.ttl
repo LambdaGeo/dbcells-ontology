@@ -30,23 +30,18 @@
 # -- dataset -----------------
 eg:dataset-ex a qb:DataSet;
     dct:title       "Example"@en;
+    dbc-attribute:drivers  dbc-code:roads;
+    dbc-attribute:input-data <https://github.com/dbcells/temodel/raw/main/data/urban_center.zip>
+    dbc-attribute:script <https://raw.githubusercontent.com/dbcells/temodel/main/scripts/fill_urban_distance.lua>
 
 # -- Observations  ----------------------------
 
 
 eg:o11 a qb:Observation;
     qb:dataSet  eg:ex ;
-    sdmx-dimension:refArea ex-geo:geo2 ;                  
-    :distance          76.7 ;
-    :drivers  dbc-code:roads;
+    dbc-measure:distance 1.56 ;                  
+    
     
     .
 
 
-eg:o12 a qb:Observation;
-    qb:dataSet  eg:ex1 ;
-    sdmx-dimension:refArea ex-geo:geo1 ;                  
-    :distance          186.7 ;
-    :drivers  dbc-code:urban;
-    
-    .
