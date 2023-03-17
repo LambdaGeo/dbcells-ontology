@@ -1,3 +1,4 @@
+
 @prefix : <http://www.purl.org/linked-data/dbcells#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -10,49 +11,40 @@
 @prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
 
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
 
-@prefix :   <<http://www.purl.org/linked-data/dbcells/concept#> .
+@prefix dbc-code:   <http://www.purl.org/linked-data/dbcells/code#> .
 @prefix eg:       <http://example.org/ns#> .
 
 @prefix ex-geo:   <http://example.org/geo#> .
 
-@base <http://www.purl.org/linked-data/dbcells/code#> .
+@base <http://www.purl.org/linked-data/dbcells/attribute#> .
 
 
 
-# -- Concepts  ----------------------------
 
-# code list
 
-:drivers a skos:ConceptScheme,  sdmx:CodeList;
-    rdfs:label "Drivers"@en;
+# -- Attributes  ----------------------------
+
+
+
+:drivers  a rdf:Property, qb:AttributeProperty;
+    rdfs:label "drivers"@en;
+    qb:codeList  dbc-code:drivers  ;
     .
 
 
-:Drivers a rdfs:Class, owl:Class;
-    rdfs:subClassOf skos:Concept ;
-    rdfs:label "Code list for Drivers - codelist class"@en;
-    rdfs:comment """This  code list provides ...."""@en;
-    rdfs:seeAlso :drivers .
+:input-data  a rdf:Property, qb:AttributeProperty;
+    rdfs:label "input-data"@en;
+    rdfs:domain rdfs:Resource
+    rdfs:range rdfs:Resource
+    .
 
-
-:roads a skos:Concept;
-    #rdfs:label "Roads"@en;
-    skos:topConceptOf :drivers ;
-    skos:inScheme :drivers .
-    
-
-
-:urban a skos:Concept;
-    #rdfs:label "Urban"@en;
-    skos:topConceptOf :drivers ;
-    skos:inScheme :drivers .
-
-
-
-# -- Dimensions  ----------------------------
-
-
+:script  a rdf:Property, qb:AttributeProperty;
+    rdfs:label "script"@en;
+    rdfs:domain rdfs:Resource
+    rdfs:range rdfs:Resource
+    .

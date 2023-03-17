@@ -24,34 +24,21 @@
 
 <http://www.purl.org/linked-data/dbcells#> rdf:type owl:Ontology .
 
-# -- dataset -----------------
-eg:dataset-ex a qb:DataSet;
-    dct:title       "Example"@en;
     .
 
 # -- Dimensions  ----------------------------
 
 
 
-# -- Attributes  ----------------------------
 
 
 
-:drivers  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "reference area"@en;
-     qb:codeList  dbc-code:drivers  ;
-    .
 
 
-# -- Measures  ----------------------------
 
-:distance  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "Euclidean distance"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
+# -- dataset -----------------
+eg:dataset-ex a qb:DataSet;
+    dct:title       "Example"@en;
 
 # -- Observations  ----------------------------
 
