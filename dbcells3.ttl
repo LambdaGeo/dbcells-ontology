@@ -40,14 +40,14 @@ dbc-code:Drivers a rdfs:Class, owl:Class;
     rdfs:seeAlso dbc-code:drivers .
 
 
-dbc-code:roads a skos:Concept, sdmx:Concept, dbc-code:Drivers;
+dbc-code:roads a skos:Concept;
     #rdfs:label "Roads"@en;
     skos:topConceptOf dbc-code:drivers ;
     skos:inScheme dbc-code:drivers .
     
 
 
-dbc-code:urban a skos:Concept, sdmx:Concept, dbc-code:Drivers;
+dbc-code:urban a skos:Concept;
     #rdfs:label "Urban"@en;
     skos:topConceptOf dbc-code:drivers ;
     skos:inScheme dbc-code:drivers .
@@ -62,9 +62,10 @@ dbc-code:urban a skos:Concept, sdmx:Concept, dbc-code:Drivers;
 # -- Attributes  ----------------------------
 
 
- :drivers a qb:AttributeProperty ;
+ :drivers a rdf:Property, qb:AttributeProperty ;
   #rdfs:label "Driver Category" ;
-  qb:codeList  dbc-code:drivers .
+  #qb:codeList  dbc-code:drivers 
+  .
 
 
 
