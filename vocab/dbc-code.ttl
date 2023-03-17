@@ -27,17 +27,17 @@
 # code list
 
 
-:inputDataCodeList a skos:ConceptScheme,  sdmx:CodeList;
+:inputDataCodeList a rdf:Property, skos:ConceptScheme,  sdmx:CodeList;
     rdfs:label "inputDataCodeList"@en;
     .
 
-:roads a skos:Concept;
+:roads a rdf:Property, skos:Concept;
     skos:prefLabel "Roads"@en;
     skos:inScheme :inputDataCodeList .
     
 
 
-:urban a skos:Concept;
+:urban a rdf:Property, skos:Concept;
     skos:prefLabel "Urban"@en;
     skos:inScheme :inputDataCodeList .
 
