@@ -10,6 +10,7 @@
 @prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
@@ -27,32 +28,20 @@
 
 # code list
 
-:drivers a skos:ConceptScheme,  sdmx:CodeList;
-    rdfs:label "Drivers"@en;
+
+:inputDataCodeList a skos:ConceptScheme,  sdmx:CodeList;
+    rdfs:label "inputDataCodeList"@en;
     .
 
-
-:Drivers a rdfs:Class, owl:Class;
-    rdfs:subClassOf skos:Concept ;
-    rdfs:label "Code list for Drivers - codelist class"@en;
-    rdfs:comment """This  code list provides ...."""@en;
-    rdfs:seeAlso :drivers .
-
-
 :roads a skos:Concept;
-    #rdfs:label "Roads"@en;
-    skos:topConceptOf :drivers ;
-    skos:inScheme :drivers .
+    skos:prefLabel "Roads"@en;
+    skos:inScheme :inputDataCodeList .
     
 
 
 :urban a skos:Concept;
-    #rdfs:label "Urban"@en;
-    skos:topConceptOf :drivers ;
-    skos:inScheme :drivers .
+    skos:prefLabel "Urban"@en;
+    skos:inScheme :inputDataCodeList .
 
-
-
-# -- Dimensions  ----------------------------
 
 

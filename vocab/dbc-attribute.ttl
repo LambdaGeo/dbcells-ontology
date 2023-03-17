@@ -29,22 +29,17 @@
 
 # -- Attributes  ----------------------------
 
-
-
-:drivers  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "drivers"@en;
-    qb:codeList  dbc-code:drivers  ;
+:inputData  a rdf:Property, qb:AttributeProperty;
+    rdfs:label "inputData"@en;
+    qb:codeList  dbc-code:inputDataCodeList  ;
     .
 
-
-:input-data  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "input-data"@en;
-    rdfs:domain rdfs:Resource
+:urlData  a rdf:Property, qb:AttributeProperty;
+    rdfs:label "url data"@en;
     rdfs:range  rdfs:Resource
     .
 
-:script  a rdf:Property, qb:AttributeProperty;
+:urlScript  a rdf:Property, qb:AttributeProperty;
     rdfs:label "script"@en;
-    rdfs:domain rdfs:Resource
     rdfs:range rdfs:Resource
     .
