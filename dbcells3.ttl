@@ -33,10 +33,9 @@
 
 
 
-:drivers  a rdf:Property, qb:DimensionProperty;
+:drivers  a rdf:Property, qb:AttributeProperty;
     rdfs:label "reference area"@en;
-    rdfs:subPropertyOf sdmx-dimension:refArea;
-    qb:concept sdmx-concept:refArea ;
+     qb:codeList  dbc-code:drivers  ;
     .
 
 
