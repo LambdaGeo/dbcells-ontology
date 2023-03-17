@@ -13,25 +13,45 @@
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
 
+@prefix dbc-concept:   <<http://www.purl.org/linked-data/dbcells/concept#> .
+@prefix eg:       <http://example.org/ns#> .
+
+@prefix ex-geo:   <http://example.org/geo#> .
+
 @base <http://www.purl.org/linked-data/dbcells#> .
 
 <http://www.purl.org/linked-data/dbcells#> rdf:type owl:Ontology .
 
 
-# -- Dimensions  ----------------------------
+# -- Concepts  ----------------------------
 
 
-:drivers a skos:ConceptScheme;
+dbc-concept:drivers a skos:ConceptScheme;
     rdfs:label "Drivers"@en;
 
 
-:roads a skos:Concept
+dbc-concept:roads a skos:Concept
     rdfs:label "Roads"@en;
     skos:inScheme :drivers .
 
 
+dbc-concept:urban a skos:Concept
+    rdfs:label "Urban"@en;
+    skos:inScheme :drivers .
+
+
+
+# -- Dimensions  ----------------------------
+
+
+
+
 # -- Attributes  ----------------------------
 
+
+ :drivers a qb:AttributeProperty ;
+  rdfs:label "Driver Category" ;
+  qb:concept dbc-concept:drivers .
 
 
 
@@ -45,3 +65,12 @@
     rdfs:range xsd:decimal ;
     .
 
+
+# -- Observations  ----------------------------
+
+
+eg:o11 a qb:Observation;
+    sdmx-dimension:refArea       ex-geo:newport_00pr ;                  
+    :distance          76.7 ;
+    
+    .
