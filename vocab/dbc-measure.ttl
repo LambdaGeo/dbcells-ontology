@@ -36,8 +36,8 @@
 
 
 # -- land cover -------------------------
-eg:lifeExpectancy  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "life expectancy"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    rdfs:range xsd:decimal ;
-    .
+#eg:lifeExpectancy  a rdf:Property, qb:MeasureProperty;
+    #rdfs:label "life expectancy"@en;
+    #rdfs:subPropertyOf sdmx-measure:obsValue;
+    #rdfs:range xsd:decimal ;
+    #.
