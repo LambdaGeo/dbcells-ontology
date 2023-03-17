@@ -14,7 +14,7 @@
 @prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
 
 
-@prefix dbc-code:   <<http://www.purl.org/linked-data/dbcells/concept#> .
+@prefix dbc-code:   <http://www.purl.org/linked-data/dbcells/code#> .
 @prefix eg:       <http://example.org/ns#> .
 
 @prefix ex-geo:   <http://example.org/geo#> .
@@ -24,50 +24,20 @@
 <http://www.purl.org/linked-data/dbcells#> rdf:type owl:Ontology .
 
 
-# -- Concepts  ----------------------------
-
-# code list
-
-dbc-code:drivers a skos:ConceptScheme,  sdmx:CodeList;
-    rdfs:label "Drivers"@en;
-    .
-
-
-dbc-code:Drivers a rdfs:Class, owl:Class;
-    rdfs:subClassOf skos:Concept ;
-    rdfs:label "Code list for Drivers - codelist class"@en;
-    rdfs:comment """This  code list provides ...."""@en;
-    rdfs:seeAlso dbc-code:drivers .
-
-
-dbc-code:roads a skos:Concept;
-    #rdfs:label "Roads"@en;
-    skos:topConceptOf dbc-code:drivers ;
-    skos:inScheme dbc-code:drivers .
-    
-
-
-dbc-code:urban a skos:Concept;
-    #rdfs:label "Urban"@en;
-    skos:topConceptOf dbc-code:drivers ;
-    skos:inScheme dbc-code:drivers .
-
-
 
 # -- Dimensions  ----------------------------
-
 
 
 
 # -- Attributes  ----------------------------
 
 
- :drivers a rdf:Property, qb:AttributeProperty ;
-  #rdfs:label "Driver Category" ;
-  #qb:codeList  dbc-code:drivers 
-  .
 
-
+:drivers  a rdf:Property, qb:DimensionProperty;
+    rdfs:label "reference area"@en;
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    qb:concept sdmx-concept:refArea ;
+    .
 
 
 # -- Measures  ----------------------------
@@ -84,7 +54,7 @@ dbc-code:urban a skos:Concept;
 
 
 eg:o11 a qb:Observation;
-    sdmx-dimension:refArea ex-geo:newport_00pr ;                  
+    sdmx-dimension:refArea ex-geo:geo2 ;                  
     :distance          76.7 ;
     :drivers  dbc-code:roads;
     
@@ -92,7 +62,7 @@ eg:o11 a qb:Observation;
 
 
 eg:o12 a qb:Observation;
-    sdmx-dimension:refArea ex-geo:newport_00pr ;                  
+    sdmx-dimension:refArea ex-geo:geo1 ;                  
     :distance          186.7 ;
     :drivers  dbc-code:urban;
     
