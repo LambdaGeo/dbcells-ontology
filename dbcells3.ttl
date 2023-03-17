@@ -42,11 +42,14 @@ dbc-code:Drivers a rdfs:Class, owl:Class;
 
 dbc-code:roads a skos:Concept, sdmx:Concept, dbc-code:Drivers;
     rdfs:label "Roads"@en;
+    skos:topConceptOf dbc-code:drivers ;
     skos:inScheme dbc-code:drivers .
+    
 
 
 dbc-code:urban a skos:Concept, sdmx:Concept, dbc-code:Drivers;
     rdfs:label "Urban"@en;
+    kos:topConceptOf dbc-code:drivers ;
     skos:inScheme :drivers .
 
 
