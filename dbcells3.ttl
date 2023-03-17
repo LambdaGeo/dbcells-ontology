@@ -50,7 +50,7 @@ dbc-code:roads a skos:Concept, sdmx:Concept, dbc-code:Drivers;
 dbc-code:urban a skos:Concept, sdmx:Concept, dbc-code:Drivers;
     #rdfs:label "Urban"@en;
     skos:topConceptOf dbc-code:drivers ;
-    skos:inScheme :drivers .
+    skos:inScheme dbc-code:drivers .
 
 
 
@@ -63,8 +63,7 @@ dbc-code:urban a skos:Concept, sdmx:Concept, dbc-code:Drivers;
 
 
  :drivers a qb:AttributeProperty ;
-  rdfs:label "Driver Category" ;
-  rdfs:range dbc-code:Drivers;
+  #rdfs:label "Driver Category" ;
   qb:codeList  dbc-code:drivers .
 
 
