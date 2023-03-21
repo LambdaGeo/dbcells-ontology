@@ -22,8 +22,6 @@
 
 @prefix ex-geo:   <http://example.org/geo#> .
 
-@base <http://www.purl.org/linked-data/dbcells#> .
-
 
 
 
