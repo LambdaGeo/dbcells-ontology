@@ -9,9 +9,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@base <http://purl.org/ontology/dbcells/cells> .
+@base <https://purl.org/linked-data/dbcells> .
 
-<http://purl.org/ontology/dbcells/cells> rdf:type owl:Ontology ;
+<https://purl.org/linked-data/dbcells> rdf:type owl:Ontology ;
                                           rdfs:comment "...." .
 
 #################################################################
