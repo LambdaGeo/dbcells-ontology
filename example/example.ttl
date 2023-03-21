@@ -28,7 +28,7 @@
 # -- dataset -----------------
 eg:dataset-ex a qb:DataSet;
     dct:title  "Example"@en;
-    dbc-attribute:inputData  dbc-code:roads;
+    dbc-attribute:inputData  dbc-code:urban;
     dbc-attribute:urlData <https://github.com/dbcells/brlucc/raw/main/data/urban_center.zip>;
     dbc-attribute:urlScript <https://raw.githubusercontent.com/dbcells/brlucc/main/scripts/fill_urban_distance.lua>;
 
@@ -38,7 +38,8 @@ eg:dataset-ex a qb:DataSet;
 
 eg:o11 a qb:Observation;
     qb:dataSet  eg:ex ;
-    dbc-measure:distance 1.56 ;                  
+    dbc-measure:distance 1.56 ;   
+    sdmx-dimension:refArea <http://www.dbcells.org/epsg4326/R0_0830Cx-67_7083Cy-7_8047> ;               
     
     
     .

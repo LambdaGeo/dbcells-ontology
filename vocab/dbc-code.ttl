@@ -42,4 +42,9 @@
     skos:inScheme :inputDataCodeList .
 
 
+:rivers a rdf:Property, skos:Concept;
+    skos:prefLabel "Rivers"@en;
+    skos:inScheme :inputDataCodeList .
+
+
 
