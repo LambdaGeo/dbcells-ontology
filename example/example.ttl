@@ -40,8 +40,23 @@ eg:o11 a qb:Observation;
     qb:dataSet  eg:ex ;
     dbc-measure:distance 1.56 ;   
     sdmx-dimension:refArea <http://www.dbcells.org/epsg4326/R0_0830Cx-67_7083Cy-7_8047> ;               
-    
-    
     .
 
 
+
+# -- dataset -----------------
+eg:dataset-ex2 a qb:DataSet;
+    dct:title  "Example"@en;
+    dbc-attribute:inputData  dbc-code:river;
+    dbc-attribute:urlData <https://github.com/dbcells/brlucc/raw/main/data/rios_pnlt.zip>;
+    dbc-attribute:urlScript <https://raw.githubusercontent.com/dbcells/brlucc/main/scripts/fill_rivers_distance.lua>;
+
+    .
+# -- Observations  ----------------------------
+
+
+eg:o12 a qb:Observation;
+    qb:dataSet  eg:ex2 ;
+    dbc-measure:distance 1.56 ;   
+    sdmx-dimension:refArea <http://www.dbcells.org/epsg4326/R0_0830Cx-67_7083Cy-7_8047> ;               
+    .
