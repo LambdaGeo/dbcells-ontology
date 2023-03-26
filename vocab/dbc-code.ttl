@@ -27,15 +27,6 @@
 # code list
 
 
-:inputDataCodeList a skos:ConceptScheme,  sdmx:CodeList;
-    rdfs:label "inputDataCodeList"@en;
-    .
-
-
-
-
-# ---- new
-
 :featureCodeList a skos:ConceptScheme,  sdmx:CodeList;
     rdfs:label "inputDataCodeList"@en;
     .
