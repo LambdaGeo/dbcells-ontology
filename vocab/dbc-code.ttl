@@ -31,20 +31,27 @@
     rdfs:label "inputDataCodeList"@en;
     .
 
+
+
+
+# ---- new
+
+:featureCodeList a skos:ConceptScheme,  sdmx:CodeList;
+    rdfs:label "inputDataCodeList"@en;
+    .
+
 :roads a rdf:Property, skos:Concept;
     skos:prefLabel "Roads"@en;
-    skos:inScheme :inputDataCodeList .
+    skos:inScheme :featureCodeList .
     
 
 
 :urban a rdf:Property, skos:Concept;
     skos:prefLabel "Urban"@en;
-    skos:inScheme :inputDataCodeList .
+    skos:inScheme :featureCodeList .
 
 
 :rivers a rdf:Property, skos:Concept;
     skos:prefLabel "Rivers"@en;
-    skos:inScheme :inputDataCodeList .
-
-
+    skos:inScheme :featureCodeList .
 
