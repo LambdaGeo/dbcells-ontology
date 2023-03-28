@@ -20,7 +20,13 @@
 
 @base <http://www.purl.org/linked-data/dbcells/code#> .
 
+@prefix dcterms: <http://purl.org/dc/terms/>.
 
+
+<http://www.purl.org/linked-data/dbcells/code> rdf:type owl:Ontology ;
+                            dcterms:title "ontology"@en;
+                                        rdf:label "teste";
+                                          rdfs:comment "...." .
 
 # -- Concepts  ----------------------------
 
