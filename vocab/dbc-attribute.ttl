@@ -24,7 +24,11 @@
 @base <http://www.purl.org/linked-data/dbcells/attribute#> .
 
 
-
+@prefix dcterms: <http://purl.org/dc/terms/>.
+<http://www.purl.org/linked-data/dbcells/attribute> rdf:type owl:Ontology ;
+                            dcterms:title "ontology"@en;
+                                        rdf:label "teste";
+                                          rdfs:comment "...." .
 
 
 # -- Attributes  ----------------------------
