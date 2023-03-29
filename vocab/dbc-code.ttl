@@ -52,3 +52,33 @@
     skos:prefLabel "Rivers"@en;
     skos:inScheme :featureCodeList .
 
+# -- land cover classes
+
+:landcover-veg a rdf:Property, skos:Concept;
+    skos:prefLabel "Forest vegetation"@en;
+    skos:inScheme :featureCodeList .
+
+:landcover-gveg a rdf:Property, skos:Concept;
+    skos:prefLabel "Grassland vegetation"@en;
+    skos:inScheme :featureCodeList .
+
+:landcover-pastp a rdf:Property, skos:Concept;
+    skos:prefLabel "Planted pasture"@en;
+    skos:inScheme :featureCodeList .
+
+:landcover-agric a rdf:Property, skos:Concept;
+    skos:prefLabel "Agriculture"@en;
+    skos:inScheme :featureCodeList .
+
+:landcover-mosc a rdf:Property, skos:Concept;
+    skos:prefLabel "Mosaic of occupation"@en;
+    skos:inScheme :featureCodeList .
+
+:landcover-fores a rdf:Property, skos:Concept;
+    skos:prefLabel "Forestry"@en;
+    skos:inScheme :featureCodeList.
+
+:landcover-others a rdf:Property, skos:Concept;
+    skos:prefLabel "Others"@en;
+    skos:inScheme :featureCodeList .
+

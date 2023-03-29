@@ -39,6 +39,13 @@
     rdfs:range xsd:decimal ;
     .
 
+:mean  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "mean"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
 
 # -- land cover -------------------------
 #eg:lifeExpectancy  a rdf:Property, qb:MeasureProperty;
