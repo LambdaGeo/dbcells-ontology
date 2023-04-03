@@ -33,42 +33,26 @@
 
 # -- Attributes  ----------------------------
 
-:inputData  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "inputData"@en;
-    qb:codeList  dbc-code:inputDataCodeList  ;
-    .
-
-
-:urlData  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "url data"@en;
-    rdfs:range  rdfs:Resource
-    .
-
-:urlScript  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "script"@en;
-    rdfs:range rdfs:Resource
-    .
-
 
 
 # --- new
 :feature  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "inputData"@en;
+    rdfs:label "feature"@en;
     qb:codeList  dbc-code:featureCodeList  ;
     .
 
 :sourceFile  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "url data"@en;
+    rdfs:label "source file"@en;
     rdfs:range  rdfs:Resource
     .
 
 :layer  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "url data"@en;
+    rdfs:label "layer"@en;
     .
 
 
 :scriptFile  a rdf:Property, qb:AttributeProperty;
-    rdfs:label "script"@en;
+    rdfs:label "script file"@en;
     rdfs:range rdfs:Resource
     .
 
