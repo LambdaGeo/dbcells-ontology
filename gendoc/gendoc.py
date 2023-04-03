@@ -8,4 +8,4 @@ for name in vocabs:
     od = OntDoc(ontology=f'../vocab/dbc-{name}.ttl')
 
     # or save HTML to a file
-    od.make_html(destination=f'../doc/dbc-{name}.html')
+    od.make_html(destination=f'../docs/dbc-{name}.html')
