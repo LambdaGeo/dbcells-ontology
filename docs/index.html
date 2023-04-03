@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>inputDataCodeList</title>
+    <title>ontology</title>
     <style>
         #pylode {
             position: fixed;
@@ -274,7 +274,7 @@ code{
     <script id="schema.org" type="application/ld+json">
 [
   {
-    "@id": "http://www.purl.org/linked-data/dbcells/code",
+    "@id": "http://www.purl.org/linked-data/dbcells",
     "@type": [
       "https://schema.org/DefinedTermSet"
     ],
@@ -289,18 +289,6 @@ code{
         "@value": "ontology"
       }
     ]
-  },
-  {
-    "@id": "http://www.purl.org/linked-data/dbcells/code#featureCodeList",
-    "@type": [
-      "https://schema.org/DefinedTermSet"
-    ],
-    "https://schema.org/name": [
-      {
-        "@language": "en",
-        "@value": "inputDataCodeList"
-      }
-    ]
   }
 ]
 	</script>
@@ -308,7 +296,7 @@ code{
   <body>
     <div id="content">
       <div class="section" id="metadata">
-        <h1>ontologyinputDataCodeList</h1>
+        <h1>ontology</h1>
         <h2>Metadata</h2>
         <dl>
           <div>
@@ -316,19 +304,14 @@ code{
               <strong>IRI</strong>
             </dt>
             <dd>
-              <code>http://www.purl.org/linked-data/dbcells/code#featureCodeList</code>
+              <code>http://www.purl.org/linked-data/dbcells</code>
             </dd>
           </div>
           <div>
             <dt>
               <a class="hover_property" href="http://purl.org/dc/terms/title" title="A name given to the resource. Defined in DCMI Metadata Terms">Title</a>
             </dt>
-            <dd>
-              <ul>
-                <li><p>ontology</p></li>
-                <li><p>inputDataCodeList</p></li>
-              </ul>
-            </dd>
+            <dd><p>ontology</p></dd>
           </div>
           <div>
             <dt>
@@ -338,134 +321,25 @@ code{
           </div>
         </dl>
       </div>
-      <div class="section" id="properties">
-        <h2>Properties</h2>
-        <div class="property entity" id="Roads">
-          <h3>Roads
-            <sup class="sup-p" title="RDF Property">p</sup>
+      <div class="section" id="classes">
+        <h2>Classes</h2>
+        <div class="property entity" id="Cell">
+          <h3>Cell
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
           <table>
             <tr>
               <th>IRI</th>
               <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#roads</code>
+                <code>http://www.purl.org/linked-data/dbcells#Cell</code>
               </td>
             </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Urban">
-          <h3>Urban
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
             <tr>
-              <th>IRI</th>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
               <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#urban</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Rivers">
-          <h3>Rivers
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#rivers</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Forestvegetation">
-          <h3>Forest vegetation
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-veg</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Grasslandvegetation">
-          <h3>Grassland vegetation
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-gveg</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Plantedpasture">
-          <h3>Planted pasture
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-pastp</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Agriculture">
-          <h3>Agriculture
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-agric</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Mosaicofoccupation">
-          <h3>Mosaic of occupation
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-mosc</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Forestry">
-          <h3>Forestry
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-fores</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="Others">
-          <h3>Others
-            <sup class="sup-p" title="RDF Property">p</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>http://www.purl.org/linked-data/dbcells/code#landcover-others</code>
+                <a href="http://www.opengis.net/ont/sfSurface">sf:Surface</a>
               </td>
             </tr>
           </table>
@@ -476,11 +350,15 @@ code{
         <dl>
           <dt id=":">:</dt>
           <dd>
-            <code>http://www.purl.org/linked-data/dbcells/code#</code>
+            <code>http://www.purl.org/linked-data/dbcells#</code>
           </dd>
           <dt id="dcterms">dcterms</dt>
           <dd>
             <code>http://purl.org/dc/terms/</code>
+          </dd>
+          <dt id="ns1">ns1</dt>
+          <dd>
+            <code>http://www.purl.org/linked-data/</code>
           </dd>
           <dt id="owl">owl</dt>
           <dd>
@@ -494,13 +372,9 @@ code{
           <dd>
             <code>http://www.w3.org/2000/01/rdf-schema#</code>
           </dd>
-          <dt id="sdmx">sdmx</dt>
+          <dt id="sf">sf</dt>
           <dd>
-            <code>http://purl.org/linked-data/sdmx#</code>
-          </dd>
-          <dt id="skos">skos</dt>
-          <dd>
-            <code>http://www.w3.org/2004/02/skos/core#</code>
+            <code>http://www.opengis.net/ont/sf</code>
           </dd>
         </dl>
       </div>
@@ -509,9 +383,9 @@ code{
         <table class="entity">
           <tr>
             <td>
-              <sup class="sup-p" title="RDF Property">p</sup>
+              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
             </td>
-            <td>Properties</td>
+            <td>Classes</td>
           </tr>
         </table>
       </div>
@@ -536,38 +410,11 @@ code{
         </li>
         <li>
           <h4>
-            <a href="#properties">Properties</a>
+            <a href="#classes">Classes</a>
           </h4>
           <ul class="second">
             <li>
-              <a href="#Roads">Roads</a>
-            </li>
-            <li>
-              <a href="#Urban">Urban</a>
-            </li>
-            <li>
-              <a href="#Rivers">Rivers</a>
-            </li>
-            <li>
-              <a href="#Forestvegetation">Forest vegetation</a>
-            </li>
-            <li>
-              <a href="#Grasslandvegetation">Grassland vegetation</a>
-            </li>
-            <li>
-              <a href="#Plantedpasture">Planted pasture</a>
-            </li>
-            <li>
-              <a href="#Agriculture">Agriculture</a>
-            </li>
-            <li>
-              <a href="#Mosaicofoccupation">Mosaic of occupation</a>
-            </li>
-            <li>
-              <a href="#Forestry">Forestry</a>
-            </li>
-            <li>
-              <a href="#Others">Others</a>
+              <a href="#Cell">Cell</a>
             </li>
           </ul>
         </li>
@@ -583,6 +430,9 @@ code{
               <a href="#dcterms">dcterms</a>
             </li>
             <li>
+              <a href="#ns1">ns1</a>
+            </li>
+            <li>
               <a href="#owl">owl</a>
             </li>
             <li>
@@ -592,10 +442,7 @@ code{
               <a href="#rdfs">rdfs</a>
             </li>
             <li>
-              <a href="#sdmx">sdmx</a>
-            </li>
-            <li>
-              <a href="#skos">skos</a>
+              <a href="#sf">sf</a>
             </li>
           </ul>
         </li>
