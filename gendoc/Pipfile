@@ -9,4 +9,4 @@ pylode = "==3.0.4"
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+

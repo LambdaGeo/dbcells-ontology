@@ -42,14 +42,72 @@
 :mean  a rdf:Property, qb:MeasureProperty;
     rdfs:label "mean"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
-    owl:sameAs sweet-distance:Distance;
+    #owl:sameAs sweet-distance:Distance;
     rdfs:range xsd:decimal ;
     .
 
 
-# -- land cover -------------------------
-#eg:lifeExpectancy  a rdf:Property, qb:MeasureProperty;
-    #rdfs:label "life expectancy"@en;
-    #rdfs:subPropertyOf sdmx-measure:obsValue;
-    #rdfs:range xsd:decimal ;
-    #.
+
+:area  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "area"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+
+:count  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "count"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+:mode  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "mode"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+:maximum  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "maximum"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+:minimum  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "minimum"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+:stdev  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "stdev"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+:presence  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "presence"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
+
+
+:sum  a rdf:Property, qb:MeasureProperty;
+    rdfs:label "sum"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    #owl:sameAs sweet-distance:Distance;
+    rdfs:range xsd:decimal ;
+    .
