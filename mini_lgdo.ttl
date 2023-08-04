@@ -1,0 +1,86 @@
+@prefix : <http://linkedgeodata.org/ontology> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://linkedgeodata.org/ontology> .
+
+<http://linkedgeodata.org/ontology> rdf:type owl:Ontology ;
+                                     owl:imports <http://www.opengis.net/ont/geosparql> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
+<http://www.w3.org/2003/01/geo/wgs84_pos#alt> rdfs:comment """The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).""" ;
+                                              rdfs:label "altitude" ;
+                                              rdf:type owl:AnnotationProperty ;
+                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdfs:comment "The WGS84 latitude of a SpatialThing (decimal degrees)." ;
+                                              rdfs:label "latitude" ;
+                                              rdf:type owl:AnnotationProperty ;
+                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#location
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:AnnotationProperty ;
+                                                   rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/based_near> .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)." ;
+                                               rdfs:label "longitude" ;
+                                               rdf:type owl:AnnotationProperty ;
+                                               rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+
+
+###  http://xmlns.com/foaf/0.1/based_near
+<http://xmlns.com/foaf/0.1/based_near> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://linkedgeodata.org/ontology/contributor
+<http://linkedgeodata.org/ontology/contributor> rdf:type owl:ObjectProperty .
+
+
+###  http://linkedgeodata.org/ontology/defaultGeometry
+<http://linkedgeodata.org/ontology/defaultGeometry> rdf:type owl:ObjectProperty ;
+                                                    rdfs:subPropertyOf <http://linkedgeodata.org/ontology/hasGeometry> .
+
+
+###  http://linkedgeodata.org/ontology/denomination
+<http://linkedgeodata.org/ontology/denomination> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://linkedgeodata.org/ontology/denotation
+<http://linkedgeodata.org/ontology/denotation> rdf:type owl:ObjectProperty ;
+                                               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://linkedgeodata.org/ontology/direction
+<http://linkedgeodata.org/ontology/direction> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://linkedgeodata.org/ontology/ehContains
+<http://linkedgeodata.org/ontology/ehContains> rdf:type owl:ObjectProperty ;
+                                               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://linkedgeodata.org/ontology/ehCoveredBy
