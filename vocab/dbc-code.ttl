@@ -4,7 +4,6 @@
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-@prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix dbc-c:    <https://purl.org/linked-data/dbcells/code#> .
 
 @base <https://purl.org/linked-data/dbcells/code#> .
@@ -115,4 +114,3 @@ dbc-c:landcover-others
     skos:definition  "Other land use and land cover classes not classified in the remaining categories."@en ;
     skos:notation    "landcover-others" ;
     skos:inScheme    dbc-c:featureCodeList .
-    

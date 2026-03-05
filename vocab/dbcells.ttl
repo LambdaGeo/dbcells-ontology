@@ -23,21 +23,23 @@
     a                owl:Ontology ;
     rdfs:label       "DBCells Vocabulary"@en ;
     dcterms:title    "DBCells Vocabulary"@en ;
-    rdfs:comment     "Root vocabulary of the DBCells project. Defines the Cell class and its core properties, and imports the measure, attribute and code sub-vocabularies. DBCells provides a methodology for publishing, reusing and integrating data from land use and land cover change models as linked data."@en ;
+    rdfs:comment     """Root vocabulary of the DBCells project. Defines the Cell class and its core properties.
+
+<p>See also the sub-vocabularies:</p>
+<ul>
+  <li><a href="https://lambdageo.github.io/dbcells-ontology/attribute/">Attribute Module</a></li>
+  <li><a href="https://lambdageo.github.io/dbcells-ontology/measure/">Measure Module</a></li>
+  <li><a href="https://lambdageo.github.io/dbcells-ontology/code/">Code List Module</a></li>
+</ul>"""@en ;
     dcterms:created  "2023-03-17"^^xsd:date ;
     dcterms:modified "2025-07-01"^^xsd:date ;
     dcterms:creator  <https://github.com/LambdaGeo> ;
     dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
     owl:versionInfo  "1.0.0" ;
-    # Links de navegação para o pyLODE exibir na documentação HTML
+    # Redundância para garantir links em diferentes visualizadores
     rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/attribute/> ;
-    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/code/> ;
     rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/measure/> ;
-    rdfs:seeAlso     <https://github.com/LambdaGeo/dbcells-ontology> ;
-    # Declaração formal de módulos
-    owl:imports      <https://purl.org/linked-data/dbcells/measure> ;
-    owl:imports      <https://purl.org/linked-data/dbcells/attribute> ;
-    owl:imports      <https://purl.org/linked-data/dbcells/code> .
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/code/> .
 
 # ------------------------------------------------------------------
 # Module Definitions (Metadata for links)
