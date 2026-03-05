@@ -28,8 +28,12 @@ jobs:
 
       - name: Generate HTML documentation
         run: |
+          mkdir -p docs
           cd scripts/
           python gendoc.py
+
+      - name: Disable Jekyll on GitHub Pages
+        run: touch docs/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
