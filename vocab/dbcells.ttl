@@ -101,7 +101,6 @@ dbc:col
 
 # Spatial dimension: sdmx-dim:refArea
 # Each observation must reference a cell URI as its spatial dimension.
-# Example: sdmx-dim:refArea <https://purl.org/dbcells/epsg4326#R0_0830Cx-46_4583Cy-23_8881>
 
 # Temporal dimension: sdmx-dim:refPeriod
 # Each observation may reference a time period as its temporal dimension.
