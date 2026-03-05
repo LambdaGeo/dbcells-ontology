@@ -8,6 +8,7 @@
 @prefix sf:         <http://www.opengis.net/ont/sf#> .
 @prefix sdmx-dim:   <http://purl.org/linked-data/sdmx/2009/dimension#> .
 @prefix dbc:        <https://purl.org/linked-data/dbcells#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
 @prefix dbc-m:      <https://purl.org/linked-data/dbcells/measure#> .
 @prefix dbc-a:      <https://purl.org/linked-data/dbcells/attribute#> .
 @prefix dbc-c:      <https://purl.org/linked-data/dbcells/code#> .
@@ -19,64 +20,70 @@
 # ------------------------------------------------------------------
 
 <https://purl.org/linked-data/dbcells>
-    a                rdf:Property ;
+    a                owl:Ontology ;
     rdfs:label       "DBCells Vocabulary"@en ;
-    rdfs:comment     "Root vocabulary of the DBCells project. Defines the Cell class and its core properties, and imports the measure, attribute and code sub-vocabularies. DBCells provides a methodology for publishing, reusing and integrating data from land use and land cover change models as linked data."@en ;
+    dcterms:title    "DBCells Vocabulary"@en ;
+    # Usando tags HTML diretamente no comentário
+    rdfs:comment     """Root vocabulary of the DBCells project. Defines the Cell class and its core properties.
+
+<p>See also the sub-vocabularies:</p>
+<ul>
+  <li><a href="https://lambdageo.github.io/dbcells-ontology/attribute/">Attribute Module</a></li>
+  <li><a href="https://lambdageo.github.io/dbcells-ontology/measure/">Measure Module</a></li>
+  <li><a href="https://lambdageo.github.io/dbcells-ontology/code/">Code List Module</a></li>
+</ul>"""@en ;
     dcterms:created  "2023-03-17"^^xsd:date ;
     dcterms:modified "2025-07-01"^^xsd:date ;
     dcterms:creator  <https://github.com/LambdaGeo> ;
     dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo  "1.0.0" ;
-    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology> ;
-    rdfs:seeAlso     <https://github.com/LambdaGeo/dbcells-ontology> .
-
+    owl:versionInfo  "1.0.0" .
 # ------------------------------------------------------------------
-# Imports
+# Module links (Metadata backup)
 # ------------------------------------------------------------------
 
-<https://purl.org/linked-data/dbcells/measure>    rdfs:isDefinedBy <https://purl.org/linked-data/dbcells> .
-<https://purl.org/linked-data/dbcells/attribute>  rdfs:isDefinedBy <https://purl.org/linked-data/dbcells> .
-<https://purl.org/linked-data/dbcells/code>       rdfs:isDefinedBy <https://purl.org/linked-data/dbcells> .
+<https://purl.org/linked-data/dbcells/measure>   rdfs:seeAlso <https://lambdageo.github.io/dbcells-ontology/measure/> .
+<https://purl.org/linked-data/dbcells/attribute> rdfs:seeAlso <https://lambdageo.github.io/dbcells-ontology/attribute/> .
+<https://purl.org/linked-data/dbcells/code>      rdfs:seeAlso <https://lambdageo.github.io/dbcells-ontology/code/> .
 
 # ------------------------------------------------------------------
 # Cell class
 # ------------------------------------------------------------------
 
 dbc:Cell
-    a               rdfs:Class ;
-    rdfs:label      "Cell"@en ;
-    rdfs:comment    "A regular geographic cell in a cellular space. Each cell is uniquely identified by a URI and represents a fixed spatial unit used to aggregate environmental, socioeconomic and infrastructure variables in land use and land cover change models. Cells are organized in grids of different spatial resolutions using the WGS84 projection (EPSG:4326)."@en ;
-    rdfs:subClassOf sf:Surface ;
-    rdfs:subClassOf geo:Feature ;
-    skos:notation   "Cell" .
+    a                rdfs:Class ;
+    rdfs:label       "Cell"@en ;
+    rdfs:comment     "A regular geographic cell in a cellular space. Each cell is uniquely identified by a URI and represents a fixed spatial unit used to aggregate environmental, socioeconomic and infrastructure variables in land use and land cover change models. Cells are organized in grids of different spatial resolutions using the WGS84 projection (EPSG:4326)."@en ;
+    rdfs:subClassOf  sf:Surface ;
+    rdfs:subClassOf  geo:Feature ;
+    skos:notation    "Cell" .
 
 # ------------------------------------------------------------------
 # Cell properties
 # ------------------------------------------------------------------
 
 dbc:resolution
-    a               rdf:Property ;
-    rdfs:label      "resolution"@en ;
-    rdfs:comment    "Spatial resolution of the cell, expressed in decimal degrees. Represents the width and height of each side of the cell. For example, a resolution of 0.083 corresponds to approximately 10 km x 10 km at the Equator."@en ;
-    rdfs:domain     dbc:Cell ;
-    rdfs:range      xsd:decimal ;
-    skos:notation   "resolution" .
+    a                rdf:Property ;
+    rdfs:label       "resolution"@en ;
+    rdfs:comment     "Spatial resolution of the cell, expressed in decimal degrees. Represents the width and height of each side of the cell. For example, a resolution of 0.083 corresponds to approximately 10 km x 10 km at the Equator."@en ;
+    rdfs:domain      dbc:Cell ;
+    rdfs:range       xsd:decimal ;
+    skos:notation    "resolution" .
 
 dbc:row
-    a               rdf:Property ;
-    rdfs:label      "row"@en ;
-    rdfs:comment    "Row index of the cell within its cellular space grid, counted from the origin."@en ;
-    rdfs:domain     dbc:Cell ;
-    rdfs:range      xsd:integer ;
-    skos:notation   "row" .
+    a                rdf:Property ;
+    rdfs:label       "row"@en ;
+    rdfs:comment     "Row index of the cell within its cellular space grid, counted from the origin."@en ;
+    rdfs:domain      dbc:Cell ;
+    rdfs:range       xsd:integer ;
+    skos:notation    "row" .
 
 dbc:col
-    a               rdf:Property ;
-    rdfs:label      "column"@en ;
-    rdfs:comment    "Column index of the cell within its cellular space grid, counted from the origin."@en ;
-    rdfs:domain     dbc:Cell ;
-    rdfs:range      xsd:integer ;
-    skos:notation   "col" .
+    a                rdf:Property ;
+    rdfs:label       "column"@en ;
+    rdfs:comment     "Column index of the cell within its cellular space grid, counted from the origin."@en ;
+    rdfs:domain      dbc:Cell ;
+    rdfs:range       xsd:integer ;
+    skos:notation    "col" .
 
 # ------------------------------------------------------------------
 # Dimensions (reused from SDMX)
@@ -84,8 +91,6 @@ dbc:col
 
 # Spatial dimension: sdmx-dim:refArea
 # Each observation must reference a cell URI as its spatial dimension.
-# Example: sdmx-dim:refArea <https://purl.org/dbcells/epsg4326#R0_0830Cx-46_4583Cy-23_8881>
 
 # Temporal dimension: sdmx-dim:refPeriod
 # Each observation may reference a time period as its temporal dimension.
-# Example: sdmx-dim:refPeriod "2010"^^xsd:gYear

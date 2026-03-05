@@ -1,5 +1,6 @@
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix qb:       <http://purl.org/linked-data/cube#> .
@@ -14,15 +15,16 @@
 # ------------------------------------------------------------------
 
 <https://purl.org/linked-data/dbcells/attribute>
-    a               rdf:Property ;
-    rdfs:label      "DBCells Attribute Vocabulary"@en ;
-    rdfs:comment    "Defines attribute properties that qualify observations in land use and land cover change models, linking measures to the geographic features, source data and scripts used to produce them."@en ;
+    a                owl:Ontology ;
+    rdfs:label       "DBCells Attribute Vocabulary"@en ;
+    dcterms:title    "DBCells Attribute Vocabulary"@en ;
+    rdfs:comment     "Defines attribute properties that qualify observations in land use and land cover change models, linking measures to the geographic features, source data and scripts used to produce them."@en ;
     dcterms:created  "2023-03-17"^^xsd:date ;
     dcterms:modified "2025-07-01"^^xsd:date ;
     dcterms:creator  <https://github.com/LambdaGeo> ;
     dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
     owl:versionInfo  "1.0.0" ;
-    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/attribute> .
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/attribute/> .
 
 # ------------------------------------------------------------------
 # Attributes
