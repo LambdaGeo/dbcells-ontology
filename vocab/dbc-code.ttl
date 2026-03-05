@@ -1,84 +1,114 @@
-@prefix : <http://www.purl.org/linked-data/dbcells/code#> .
-@prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
-@prefix sdmx:    <http://purl.org/linked-data/sdmx#> .
-@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
-@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
-@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
-@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix dbc-c:    <https://purl.org/linked-data/dbcells/code#> .
 
-@prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
+@base <https://purl.org/linked-data/dbcells/code#> .
 
-@prefix eg:       <http://example.org/ns#> .
+# ------------------------------------------------------------------
+# Ontology header
+# ------------------------------------------------------------------
 
-@prefix ex-geo:   <http://example.org/geo#> .
+<https://purl.org/linked-data/dbcells/code>
+    a               rdf:Property ;
+    rdfs:label      "DBCells Code Vocabulary"@en ;
+    rdfs:comment    "Defines controlled code lists for geographic features and land cover classes used as attributes in land use and land cover change models."@en ;
+    dcterms:created  "2023-05-03"^^xsd:date ;
+    dcterms:modified "2025-07-01"^^xsd:date ;
+    dcterms:creator  <https://github.com/LambdaGeo> ;
+    dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo  "1.0.0" ;
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/code> .
 
-@base <http://www.purl.org/linked-data/dbcells/code#> .
+# ------------------------------------------------------------------
+# Code list — geographic features
+# ------------------------------------------------------------------
 
-@prefix dcterms: <http://purl.org/dc/terms/>.
+dbc-c:featureCodeList
+    a               skos:ConceptScheme ;
+    rdfs:label      "Geographic Feature Code List"@en ;
+    rdfs:comment    "Controlled list of geographic features and land cover classes that can be referenced as attributes in DBCells observations."@en ;
+    skos:prefLabel  "DBCells Feature Code List"@en .
 
+# -- Infrastructure features
 
-<http://www.purl.org/linked-data/dbcells/code> rdf:type owl:Ontology ;
-                            dcterms:title "ontology"@en;
-                                        rdf:label "teste";
-                                          rdfs:comment "...." .
+dbc-c:roads
+    a               skos:Concept ;
+    skos:prefLabel  "Roads"@en ;
+    skos:definition "Road network features, including highways, paved and unpaved roads used as reference for distance-based measures."@en ;
+    skos:notation   "roads" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-# -- Concepts  ----------------------------
+dbc-c:rivers
+    a               skos:Concept ;
+    skos:prefLabel  "Rivers"@en ;
+    skos:definition "River and stream network features used as reference for distance-based or area-based measures."@en ;
+    skos:notation   "rivers" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-# code list
+dbc-c:urban
+    a               skos:Concept ;
+    skos:prefLabel  "Urban areas"@en ;
+    skos:definition "Urban centers and built-up areas used as reference for distance-based measures or as a land cover class."@en ;
+    skos:notation   "urban" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
+dbc-c:ports
+    a               skos:Concept ;
+    skos:prefLabel  "Ports"@en ;
+    skos:definition "Port facilities used as reference for distance-based measures related to trade and transportation."@en ;
+    skos:notation   "ports" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-:featureCodeList a skos:ConceptScheme,  sdmx:CodeList;
-    rdfs:label "inputDataCodeList"@en;
-    .
+# -- Land cover classes
 
-:roads a rdf:Property, skos:Concept;
-    skos:prefLabel "Roads"@en;
-    skos:inScheme :featureCodeList .
-    
+dbc-c:landcover-veg
+    a               skos:Concept ;
+    skos:prefLabel  "Forest vegetation"@en ;
+    skos:definition "Areas covered by native forest vegetation, including dense, open, and mixed forest formations."@en ;
+    skos:notation   "landcover-veg" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
+dbc-c:landcover-gveg
+    a               skos:Concept ;
+    skos:prefLabel  "Grassland vegetation"@en ;
+    skos:definition "Areas covered by natural grassland and savanna vegetation, commonly found in Cerrado and Pampa biomes."@en ;
+    skos:notation   "landcover-gveg" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-:urban a rdf:Property, skos:Concept;
-    skos:prefLabel "Urban"@en;
-    skos:inScheme :featureCodeList .
+dbc-c:landcover-pastp
+    a               skos:Concept ;
+    skos:prefLabel  "Planted pasture"@en ;
+    skos:definition "Areas with cultivated pasture grasses used for livestock farming."@en ;
+    skos:notation   "landcover-pastp" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
+dbc-c:landcover-agric
+    a               skos:Concept ;
+    skos:prefLabel  "Agriculture"@en ;
+    skos:definition "Areas occupied by temporary and permanent crops, including irrigated and non-irrigated cultivation."@en ;
+    skos:notation   "landcover-agric" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-:rivers a rdf:Property, skos:Concept;
-    skos:prefLabel "Rivers"@en;
-    skos:inScheme :featureCodeList .
+dbc-c:landcover-mosc
+    a               skos:Concept ;
+    skos:prefLabel  "Mosaic of occupation"@en ;
+    skos:definition "Areas with a mosaic of small-scale agricultural activities and remnants of natural vegetation, where it is not possible to distinguish individual land use types at the mapping scale."@en ;
+    skos:notation   "landcover-mosc" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-# -- land cover classes
+dbc-c:landcover-fores
+    a               skos:Concept ;
+    skos:prefLabel  "Forestry"@en ;
+    skos:definition "Areas of planted and managed forests with exotic species, such as eucalyptus and pine plantations."@en ;
+    skos:notation   "landcover-fores" ;
+    skos:inScheme   dbc-c:featureCodeList .
 
-:landcover-veg a rdf:Property, skos:Concept;
-    skos:prefLabel "Forest vegetation"@en;
-    skos:inScheme :featureCodeList .
-
-:landcover-gveg a rdf:Property, skos:Concept;
-    skos:prefLabel "Grassland vegetation"@en;
-    skos:inScheme :featureCodeList .
-
-:landcover-pastp a rdf:Property, skos:Concept;
-    skos:prefLabel "Planted pasture"@en;
-    skos:inScheme :featureCodeList .
-
-:landcover-agric a rdf:Property, skos:Concept;
-    skos:prefLabel "Agriculture"@en;
-    skos:inScheme :featureCodeList .
-
-:landcover-mosc a rdf:Property, skos:Concept;
-    skos:prefLabel "Mosaic of occupation"@en;
-    skos:inScheme :featureCodeList .
-
-:landcover-fores a rdf:Property, skos:Concept;
-    skos:prefLabel "Forestry"@en;
-    skos:inScheme :featureCodeList.
-
-:landcover-others a rdf:Property, skos:Concept;
-    skos:prefLabel "Others"@en;
-    skos:inScheme :featureCodeList .
-
+dbc-c:landcover-others
+    a               skos:Concept ;
+    skos:prefLabel  "Others"@en ;
+    skos:definition "Other land use and land cover classes not classified in the remaining categories."@en ;
+    skos:notation   "landcover-others" ;
+    skos:inScheme   dbc-c:featureCodeList .

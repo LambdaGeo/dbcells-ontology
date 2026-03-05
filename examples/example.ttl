@@ -1,0 +1,133 @@
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix qb:         <http://purl.org/linked-data/cube#> .
+@prefix sdmx-dim:   <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix geo:        <http://www.opengis.net/ont/geosparql#> .
+@prefix dbc:        <https://purl.org/linked-data/dbcells#> .
+@prefix dbc-m:      <https://purl.org/linked-data/dbcells/measure#> .
+@prefix dbc-a:      <https://purl.org/linked-data/dbcells/attribute#> .
+@prefix dbc-c:      <https://purl.org/linked-data/dbcells/code#> .
+@prefix cells:      <https://purl.org/linked-data/dbcells/epsg4326#> .
+@prefix ds:         <https://purl.org/dbcells/dataset#> .
+@prefix obs:        <https://purl.org/dbcells/observation#> .
+
+# ==================================================================
+# DBCells Vocabulary — Usage Example
+#
+# This file illustrates how to publish land use and land cover model
+# data using the DBCells vocabulary on top of RDF Data Cube (qb).
+#
+# Scenario:
+#   - Model applied to Brazil at 10 km x 10 km resolution (0.083°)
+#   - Two datasets published: distance to urban areas, and
+#     percentage of forest vegetation cover
+#   - Two observations shown per dataset
+# ==================================================================
+
+
+# ------------------------------------------------------------------
+# Example 1 — Distance to urban areas
+# ------------------------------------------------------------------
+
+# Dataset: groups all observations of the same measure + feature,
+# sharing source data and script metadata.
+
+ds:urban-distance-2010
+    a                       qb:DataSet ;
+    dcterms:title           "Distance to urban areas — Brazil 2010"@en ;
+    dcterms:description     "Minimum Euclidean distance from each cell centroid to the nearest urban center, computed from IBGE urban area polygons for the year 2010."@en ;
+    sdmx-dim:refPeriod      "2010"^^xsd:gYear ;
+    dbc-a:feature           dbc-c:urban ;
+    dbc-a:sourceFile        <https://github.com/LambdaGeo/brlucc-database/raw/main/data/urban_centers.zip> ;
+    dbc-a:scriptFile        <https://github.com/LambdaGeo/brlucc-database/blob/main/scripts/fill_urban_distance.lua> .
+
+# Observations
+
+obs:urban-dist-001
+    a                       qb:Observation ;
+    qb:dataSet              ds:urban-distance-2010 ;
+    sdmx-dim:refArea        cells:R0_0830Cx-46_4583Cy-23_8881 ;
+    dbc-m:distance          3516.53 .
+
+obs:urban-dist-002
+    a                       qb:Observation ;
+    qb:dataSet              ds:urban-distance-2010 ;
+    sdmx-dim:refArea        cells:R0_0830Cx-46_3750Cy-24_0547 ;
+    dbc-m:distance          6400.28 .
+
+
+# ------------------------------------------------------------------
+# Example 2 — Percentage of forest vegetation cover
+# ------------------------------------------------------------------
+
+ds:forest-cover-2010
+    a                       qb:DataSet ;
+    dcterms:title           "Forest vegetation cover — Brazil 2010"@en ;
+    dcterms:description     "Percentage of each cell area covered by native forest vegetation, derived from MapBiomas Collection 7 land cover classification for 2010."@en ;
+    sdmx-dim:refPeriod      "2010"^^xsd:gYear ;
+    dbc-a:feature           dbc-c:landcover-veg ;
+    dbc-a:sourceFile        <https://github.com/LambdaGeo/brlucc-database/raw/main/data/mapbiomas_2010.tif> ;
+    dbc-a:scriptFile        <https://github.com/LambdaGeo/brlucc-database/blob/main/scripts/fill_forest_percentage.lua> .
+
+# Observations
+
+obs:forest-cover-001
+    a                       qb:Observation ;
+    qb:dataSet              ds:forest-cover-2010 ;
+    sdmx-dim:refArea        cells:R0_0830Cx-46_4583Cy-23_8881 ;
+    dbc-m:percentage        87.3 .
+
+obs:forest-cover-002
+    a                       qb:Observation ;
+    qb:dataSet              ds:forest-cover-2010 ;
+    sdmx-dim:refArea        cells:R0_0830Cx-46_3750Cy-24_0547 ;
+    dbc-m:percentage        12.1 .
+
+
+# ------------------------------------------------------------------
+# Example 3 — Cell definition (normally lives in the DBCells server)
+# ------------------------------------------------------------------
+
+# In practice, cell geometries are stored and served by the DBCells
+# repository. They are referenced by URI in observations above.
+# This block is shown here only for illustration.
+
+cells:R0_0830Cx-46_4583Cy-23_8881
+    a                   dbc:Cell ;
+    dbc:resolution      0.083 ;
+    dbc:col             -46.4583 ;
+    dbc:row             -23.8881 ;
+    geo:asWKT           "POLYGON((-46.5413 -23.9711, -46.5413 -23.8051, -46.3753 -23.8051, -46.3753 -23.9711, -46.5413 -23.9711))"^^geo:wktLiteral .
+
+cells:R0_0830Cx-46_3750Cy-24_0547
+    a                   dbc:Cell ;
+    dbc:resolution      0.083 ;
+    dbc:col             -46.3750 ;
+    dbc:row             -24.0547 ;
+    geo:asWKT           "POLYGON((-46.4580 -24.1377, -46.4580 -23.9717, -46.2920 -23.9717, -46.2920 -24.1377, -46.4580 -24.1377))"^^geo:wktLiteral .
+
+
+# ------------------------------------------------------------------
+# Example SPARQL query — integrating DBCells geometry and model data
+# ------------------------------------------------------------------
+#
+# PREFIX dbc-m:     <https://purl.org/linked-data/dbcells/measure#>
+# PREFIX dbc-a:     <https://purl.org/linked-data/dbcells/attribute#>
+# PREFIX dbc-c:     <https://purl.org/linked-data/dbcells/code#>
+# PREFIX qb:        <http://purl.org/linked-data/cube#>
+# PREFIX sdmx-dim:  <http://purl.org/linked-data/sdmx/2009/dimension#>
+# PREFIX geo:       <http://www.opengis.net/ont/geosparql#>
+#
+# SELECT ?cell ?forestCover ?wkt
+# WHERE {
+#   SERVICE <https://dbcells-fuseki-production.up.railway.app/cells> {
+#     ?cell geo:asWKT ?wkt .
+#   }
+#   ?obs a qb:Observation ;
+#        dbc-m:percentage ?forestCover ;
+#        qb:dataSet ?ds ;
+#        sdmx-dim:refArea ?cell .
+#   ?ds dbc-a:feature dbc-c:landcover-veg .
+# }
