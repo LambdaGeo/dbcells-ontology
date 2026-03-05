@@ -1,1 +1,19 @@
 
+# Auto-generated documentation
+docs/
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# pipenv
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# QGIS
+*.qgs~
+*.qgz

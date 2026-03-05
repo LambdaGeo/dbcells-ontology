@@ -1,113 +1,119 @@
-
-@prefix : <http://www.purl.org/linked-data/dbcells/measure#> .
-@prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix interval: <http://reference.data.gov.uk/def/intervals/> .
-@prefix sdmx:    <http://purl.org/linked-data/sdmx#> .
-@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix qb:           <http://purl.org/linked-data/cube#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
-@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
-@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix sweet-space:  <http://sweetontology.net/propSpaceDistance/> .
+@prefix dbc-m:        <https://purl.org/linked-data/dbcells/measure#> .
 
-@prefix sweet-distance: <http://sweetontology.net/propSpaceDistance/> .
+@base <https://purl.org/linked-data/dbcells/measure#> .
 
+# ------------------------------------------------------------------
+# Ontology header
+# ------------------------------------------------------------------
 
-@prefix dbc-code:   <http://www.purl.org/linked-data/dbcells/code#> .
-@prefix eg:       <http://example.org/ns#> .
+<https://purl.org/linked-data/dbcells/measure>
+    a rdf:Property ;
+    rdfs:label        "DBCells Measure Vocabulary"@en ;
+    rdfs:comment      "Defines measure properties representing the spatial aggregation operations commonly used in land use and land cover change models."@en ;
+    dcterms:created   "2023-03-17"^^xsd:date ;
+    dcterms:modified  "2025-07-01"^^xsd:date ;
+    dcterms:creator   <https://github.com/LambdaGeo> ;
+    dcterms:license   <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo   "1.0.0" ;
+    rdfs:seeAlso      <https://lambdageo.github.io/dbcells-ontology/measure> .
 
-@prefix ex-geo:   <http://example.org/geo#> .
+# ------------------------------------------------------------------
+# Measures
+# ------------------------------------------------------------------
 
-@base <http://www.purl.org/linked-data/dbcells/measure#> .
+dbc-m:distance
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Euclidean distance"@en ;
+    rdfs:comment    "Minimum Euclidean distance from the centroid of a cell to the nearest geographic feature, expressed in meters."@en ;
+    skos:notation   "distance" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:seeAlso    sweet-space:Distance ;
+    rdfs:range      xsd:decimal .
 
-@prefix dcterms: <http://purl.org/dc/terms/>.
+dbc-m:mean
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Arithmetic mean"@en ;
+    rdfs:comment    "Arithmetic mean of the values of a given variable within a cell, used to aggregate data from higher-resolution sources."@en ;
+    skos:notation   "mean" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
-<http://www.purl.org/linked-data/dbcells/measure> rdf:type owl:Ontology ;
-                            dcterms:title "ontology"@en;
-                                        rdf:label "teste";
-                                          rdfs:comment "...." .
+dbc-m:mode
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Mode"@en ;
+    rdfs:comment    "Most frequently occurring value of a given variable within a cell."@en ;
+    skos:notation   "mode" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
-# -- Measures  ----------------------------
+dbc-m:minimum
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Minimum"@en ;
+    rdfs:comment    "Minimum value of a given variable observed within a cell."@en ;
+    skos:notation   "minimum" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
-:distance  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "Euclidean distance"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
+dbc-m:maximum
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Maximum"@en ;
+    rdfs:comment    "Maximum value of a given variable observed within a cell."@en ;
+    skos:notation   "maximum" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
-:mean  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "mean"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
+dbc-m:sum
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Sum"@en ;
+    rdfs:comment    "Sum of the values of a given variable within a cell."@en ;
+    skos:notation   "sum" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
+dbc-m:count
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Count"@en ;
+    rdfs:comment    "Number of occurrences of a given feature or class within a cell."@en ;
+    skos:notation   "count" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:integer .
 
+dbc-m:percentage
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Percentage"@en ;
+    rdfs:comment    "Percentage of a cell area covered by a given feature or land cover class, expressed as a value between 0 and 100."@en ;
+    skos:notation   "percentage" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
-:area  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "area"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
+dbc-m:stdev
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Standard deviation"@en ;
+    rdfs:comment    "Standard deviation of the values of a given variable within a cell."@en ;
+    skos:notation   "stdev" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
+dbc-m:area
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Area"@en ;
+    rdfs:comment    "Total area covered by a given feature or land cover class within a cell, expressed in square meters."@en ;
+    skos:notation   "area" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:decimal .
 
-
-:count  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "count"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
-
-:mode  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "mode"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
-
-:maximum  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "maximum"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
-
-:minimum  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "minimum"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
-
-:stdev  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "stdev"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
-
-:presence  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "presence"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
-
-
-:sum  a rdf:Property, qb:MeasureProperty;
-    rdfs:label "sum"@en;
-    rdfs:subPropertyOf sdmx-measure:obsValue;
-    #owl:sameAs sweet-distance:Distance;
-    rdfs:range xsd:decimal ;
-    .
+dbc-m:presence
+    a               rdf:Property, qb:MeasureProperty ;
+    rdfs:label      "Presence"@en ;
+    rdfs:comment    "Binary indicator of whether a given feature or class is present within a cell. 1 indicates presence, 0 indicates absence."@en ;
+    skos:notation   "presence" ;
+    rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range      xsd:boolean .
