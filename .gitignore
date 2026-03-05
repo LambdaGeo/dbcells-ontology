@@ -1,19 +1,13 @@
-
 # Auto-generated documentation
 docs/
 
 # Python
 __pycache__/
 *.pyc
+*.pyo
 .env
-
-# pipenv
 .venv/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# QGIS
-*.qgs~
-*.qgz

@@ -1,23 +1,20 @@
-
 """
-Este é um exemplo de arquivo Python para documentação com PyloDe.
-Ele inclui imports do PyloDe.
+Generates HTML documentation for the DBCells vocabulary using pyLODE.
+Run from the scripts/ directory.
 """
 
+import os
 from pylode import OntDoc
 
-
-vocabs = ["attribute","code","measure"]
+vocabs = ["attribute", "code", "measure"]
 
 for name in vocabs:
-    # initialise
+    os.makedirs(f'../docs/{name}', exist_ok=True)
     od = OntDoc(ontology=f'../vocab/dbc-{name}.ttl')
-
-    # or save HTML to a file
     od.make_html(destination=f'../docs/{name}/index.html')
+    print(f'Generated docs/{name}/index.html')
 
-
+os.makedirs('../docs', exist_ok=True)
 od = OntDoc(ontology='../vocab/dbcells.ttl')
-
-od.make_html(destination=f'../docs/index.html')
-
+od.make_html(destination='../docs/index.html')
+print('Generated docs/index.html')
