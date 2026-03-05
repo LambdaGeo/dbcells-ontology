@@ -278,6 +278,11 @@ code{
     "@type": [
       "https://schema.org/DefinedTermSet"
     ],
+    "https://schema.org/creator": [
+      {
+        "@id": "https://github.com/LambdaGeo"
+      }
+    ],
     "https://schema.org/dateCreated": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
@@ -293,7 +298,12 @@ code{
     "https://schema.org/description": [
       {
         "@language": "en",
-        "@value": "Defines attribute properties..."
+        "@value": "Defines attribute properties that qualify observations in land use and land cover change models, linking measures to the geographic features, source data and scripts used to produce them."
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
       }
     ],
     "https://schema.org/name": [
@@ -328,6 +338,14 @@ code{
           </div>
           <div>
             <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/creator" title="An entity responsible for making the resource. Defined in DCMI Metadata Terms">Creator</a>
+            </dt>
+            <dd>
+              <a href="https://github.com/LambdaGeo">ns2:LambdaGeo</a>
+            </dd>
+          </div>
+          <div>
+            <dt>
               <a class="hover_property" href="http://purl.org/dc/terms/created" title="Date of creation of the resource. Defined in DCMI Metadata Terms">Date Created</a>
             </dt>
             <dd><p>2023-03-17</p></dd>
@@ -340,6 +358,14 @@ code{
           </div>
           <div>
             <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/license" title="A legal document giving official permission to do something with the resource. Defined in DCMI Metadata Terms">License</a>
+            </dt>
+            <dd>
+              <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>
+            </dd>
+          </div>
+          <div>
+            <dt>
               <a class="hover_property" href="http://www.w3.org/2002/07/owl#versionInfo" title="The annotation property that provides version information for an ontology or another OWL construct. Defined in The OWL 2 Schema vocabulary (OWL 2)">Version Info</a>
             </dt>
             <dd><p>1.0.0</p></dd>
@@ -348,7 +374,7 @@ code{
             <dt>
               <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
             </dt>
-            <dd><p>Defines attribute properties...</p></dd>
+            <dd><p>Defines attribute properties that qualify observations in land use and land cover change models, linking measures to the geographic features, source data and scripts used to produce them.</p></dd>
           </div>
         </dl>
       </div>
@@ -512,9 +538,17 @@ code{
           <dd>
             <code>https://purl.org/linked-data/dbcells/</code>
           </dd>
+          <dt id="ns2">ns2</dt>
+          <dd>
+            <code>https://github.com/</code>
+          </dd>
           <dt id="owl">owl</dt>
           <dd>
             <code>http://www.w3.org/2002/07/owl#</code>
+          </dd>
+          <dt id="prov">prov</dt>
+          <dd>
+            <code>http://www.w3.org/ns/prov#</code>
           </dd>
           <dt id="qb">qb</dt>
           <dd>
@@ -608,7 +642,13 @@ code{
               <a href="#ns1">ns1</a>
             </li>
             <li>
+              <a href="#ns2">ns2</a>
+            </li>
+            <li>
               <a href="#owl">owl</a>
+            </li>
+            <li>
+              <a href="#prov">prov</a>
             </li>
             <li>
               <a href="#qb">qb</a>
