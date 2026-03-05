@@ -23,27 +23,37 @@
     a                owl:Ontology ;
     rdfs:label       "DBCells Vocabulary"@en ;
     dcterms:title    "DBCells Vocabulary"@en ;
-    # Usando tags HTML diretamente no comentário
-    rdfs:comment     """Root vocabulary of the DBCells project. Defines the Cell class and its core properties.
-
-<p>See also the sub-vocabularies:</p>
-<ul>
-  <li><a href="https://lambdageo.github.io/dbcells-ontology/attribute/">Attribute Module</a></li>
-  <li><a href="https://lambdageo.github.io/dbcells-ontology/measure/">Measure Module</a></li>
-  <li><a href="https://lambdageo.github.io/dbcells-ontology/code/">Code List Module</a></li>
-</ul>"""@en ;
+    rdfs:comment     "Root vocabulary of the DBCells project. Defines the Cell class and its core properties, and imports the measure, attribute and code sub-vocabularies. DBCells provides a methodology for publishing, reusing and integrating data from land use and land cover change models as linked data."@en ;
     dcterms:created  "2023-03-17"^^xsd:date ;
     dcterms:modified "2025-07-01"^^xsd:date ;
     dcterms:creator  <https://github.com/LambdaGeo> ;
     dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo  "1.0.0" .
+    owl:versionInfo  "1.0.0" ;
+    # Links de navegação para o pyLODE exibir na documentação HTML
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/attribute/> ;
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/code/> ;
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/measure/> ;
+    rdfs:seeAlso     <https://github.com/LambdaGeo/dbcells-ontology> ;
+    # Declaração formal de módulos
+    owl:imports      <https://purl.org/linked-data/dbcells/measure> ;
+    owl:imports      <https://purl.org/linked-data/dbcells/attribute> ;
+    owl:imports      <https://purl.org/linked-data/dbcells/code> .
+
 # ------------------------------------------------------------------
-# Module links (Metadata backup)
+# Module Definitions (Metadata for links)
 # ------------------------------------------------------------------
 
-<https://purl.org/linked-data/dbcells/measure>   rdfs:seeAlso <https://lambdageo.github.io/dbcells-ontology/measure/> .
-<https://purl.org/linked-data/dbcells/attribute> rdfs:seeAlso <https://lambdageo.github.io/dbcells-ontology/attribute/> .
-<https://purl.org/linked-data/dbcells/code>      rdfs:seeAlso <https://lambdageo.github.io/dbcells-ontology/code/> .
+<https://purl.org/linked-data/dbcells/measure>
+    rdfs:label       "DBCells Measure Module"@en ;
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/measure/> .
+
+<https://purl.org/linked-data/dbcells/attribute>
+    rdfs:label       "DBCells Attribute Module"@en ;
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/attribute/> .
+
+<https://purl.org/linked-data/dbcells/code>
+    rdfs:label       "DBCells Code Module"@en ;
+    rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/code/> .
 
 # ------------------------------------------------------------------
 # Cell class
@@ -94,3 +104,4 @@ dbc:col
 
 # Temporal dimension: sdmx-dim:refPeriod
 # Each observation may reference a time period as its temporal dimension.
+# Example: sdmx-dim:refPeriod "2010"^^xsd:gYear .
