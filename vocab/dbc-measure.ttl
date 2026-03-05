@@ -5,6 +5,7 @@
 @prefix qb:           <http://purl.org/linked-data/cube#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix sweet-space:  <http://sweetontology.net/propSpaceDistance/> .
 @prefix dbc-m:        <https://purl.org/linked-data/dbcells/measure#> .
 
@@ -15,7 +16,7 @@
 # ------------------------------------------------------------------
 
 <https://purl.org/linked-data/dbcells/measure>
-    a rdf:Property ;
+    a owl:Ontology ;
     rdfs:label        "DBCells Measure Vocabulary"@en ;
     rdfs:comment      "Defines measure properties representing the spatial aggregation operations commonly used in land use and land cover change models."@en ;
     dcterms:created   "2023-03-17"^^xsd:date ;
