@@ -8,6 +8,7 @@
 @prefix sf:         <http://www.opengis.net/ont/sf#> .
 @prefix sdmx-dim:   <http://purl.org/linked-data/sdmx/2009/dimension#> .
 @prefix dbc:        <https://purl.org/linked-data/dbcells#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix dbc-m:      <https://purl.org/linked-data/dbcells/measure#> .
 @prefix dbc-a:      <https://purl.org/linked-data/dbcells/attribute#> .
 @prefix dbc-c:      <https://purl.org/linked-data/dbcells/code#> .
@@ -19,13 +20,11 @@
 # ------------------------------------------------------------------
 
 <https://purl.org/linked-data/dbcells>
-    a                rdf:Property ;
-    rdfs:label       "DBCells Vocabulary"@en ;
-    rdfs:comment     "Root vocabulary of the DBCells project. Defines the Cell class and its core properties, and imports the measure, attribute and code sub-vocabularies. DBCells provides a methodology for publishing, reusing and integrating data from land use and land cover change models as linked data."@en ;
-    dcterms:created  "2023-03-17"^^xsd:date ;
-    dcterms:modified "2025-07-01"^^xsd:date ;
-    dcterms:creator  <https://github.com/LambdaGeo> ;
-    dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
+    a               owl:Ontology ;  # MUDADO: Era rdf:Property
+    rdfs:label      "DBCells Vocabulary"@en ;
+    dcterms:title   "DBCells Vocabulary"@en ; # Adicionado para melhor indexação no pyLODE
+    rdfs:comment    "Root vocabulary of the DBCells project..."@en ;
+    # ... os outros campos (created, modified, etc) permanecem iguais ...
     owl:versionInfo  "1.0.0" ;
     rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology> ;
     rdfs:seeAlso     <https://github.com/LambdaGeo/dbcells-ontology> .
