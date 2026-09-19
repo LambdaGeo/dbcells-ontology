@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/requirements.txt
 
+      - name: Validate vocabulary (syntax + grid index sanity check)
+        run: python scripts/validate.py
+
       - name: Generate HTML documentation
         run: |
           mkdir -p docs

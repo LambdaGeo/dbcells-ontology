@@ -1,0 +1,29 @@
+name: Validate vocabulary
+
+on:
+  pull_request:
+    paths:
+      - 'vocab/**.ttl'
+      - 'examples/**.ttl'
+      - 'scripts/validate.py'
+      - 'scripts/requirements.txt'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Validate vocabulary (syntax + grid index sanity check)
+        run: python scripts/validate.py
