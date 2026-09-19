@@ -93,20 +93,25 @@ obs:forest-cover-002
 # In practice, cell geometries are stored and served by the DBCells
 # repository. They are referenced by URI in observations above.
 # This block is shown here only for illustration.
+#
+# dbc:col and dbc:row are grid indices (xsd:integer), counted from the
+# grid origin (0,0) at (lon 0°, lat 0°) using floor(coordinate / resolution).
+# They identify the cell within the grid; geo:asWKT gives its actual
+# geographic footprint. The polygon side length always equals dbc:resolution.
 
 cells:R0_0830Cx-46_4583Cy-23_8881
     a                   dbc:Cell ;
     dbc:resolution      0.083 ;
-    dbc:col             -46.4583 ;
-    dbc:row             -23.8881 ;
-    geo:asWKT           "POLYGON((-46.5413 -23.9711, -46.5413 -23.8051, -46.3753 -23.8051, -46.3753 -23.9711, -46.5413 -23.9711))"^^geo:wktLiteral .
+    dbc:col             -560 ;
+    dbc:row             -288 ;
+    geo:asWKT           "POLYGON((-46.4800 -23.9040, -46.4800 -23.8210, -46.3970 -23.8210, -46.3970 -23.9040, -46.4800 -23.9040))"^^geo:wktLiteral .
 
 cells:R0_0830Cx-46_3750Cy-24_0547
     a                   dbc:Cell ;
     dbc:resolution      0.083 ;
-    dbc:col             -46.3750 ;
-    dbc:row             -24.0547 ;
-    geo:asWKT           "POLYGON((-46.4580 -24.1377, -46.4580 -23.9717, -46.2920 -23.9717, -46.2920 -24.1377, -46.4580 -24.1377))"^^geo:wktLiteral .
+    dbc:col             -559 ;
+    dbc:row             -290 ;
+    geo:asWKT           "POLYGON((-46.3970 -24.0700, -46.3970 -23.9870, -46.3140 -23.9870, -46.3140 -24.0700, -46.3970 -24.0700))"^^geo:wktLiteral .
 
 
 # ------------------------------------------------------------------

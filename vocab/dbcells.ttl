@@ -32,10 +32,10 @@
   <li><a href="https://lambdageo.github.io/dbcells-ontology/code/">Code List Module</a></li>
 </ul>"""@en ;
     dcterms:created  "2023-03-17"^^xsd:date ;
-    dcterms:modified "2025-07-01"^^xsd:date ;
+    dcterms:modified "2026-09-19"^^xsd:date ;
     dcterms:creator  <https://github.com/LambdaGeo> ;
     dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo  "1.0.0" ;
+    owl:versionInfo  "1.0.1" ;
     # Redundância para garantir links em diferentes visualizadores
     rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/attribute/> ;
     rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/measure/> ;
@@ -84,7 +84,7 @@ dbc:resolution
 dbc:row
     a                rdf:Property ;
     rdfs:label       "row"@en ;
-    rdfs:comment     "Row index of the cell within its cellular space grid, counted from the origin."@en ;
+    rdfs:comment     "Row index of the cell within its cellular space grid, counted from the origin (0,0) at (lon 0°, lat 0°), computed as floor(latitude / resolution). This is a discrete grid index, not a geographic coordinate; the cell's geographic footprint is given by geo:asWKT."@en ;
     rdfs:domain      dbc:Cell ;
     rdfs:range       xsd:integer ;
     skos:notation    "row" .
@@ -92,7 +92,7 @@ dbc:row
 dbc:col
     a                rdf:Property ;
     rdfs:label       "column"@en ;
-    rdfs:comment     "Column index of the cell within its cellular space grid, counted from the origin."@en ;
+    rdfs:comment     "Column index of the cell within its cellular space grid, counted from the origin (0,0) at (lon 0°, lat 0°), computed as floor(longitude / resolution). This is a discrete grid index, not a geographic coordinate; the cell's geographic footprint is given by geo:asWKT."@en ;
     rdfs:domain      dbc:Cell ;
     rdfs:range       xsd:integer ;
     skos:notation    "col" .

@@ -18,10 +18,10 @@
     dcterms:title    "DBCells Code Vocabulary"@en ;
     rdfs:comment     "Defines controlled code lists for geographic features and land cover classes used as attributes in land use and land cover change models."@en ;
     dcterms:created  "2023-05-03"^^xsd:date ;
-    dcterms:modified "2025-07-01"^^xsd:date ;
+    dcterms:modified "2026-09-19"^^xsd:date ;
     dcterms:creator  <https://github.com/LambdaGeo> ;
     dcterms:license  <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo  "1.0.0" ;
+    owl:versionInfo  "1.0.1" ;
     rdfs:seeAlso     <https://lambdageo.github.io/dbcells-ontology/code/> .
 
 # ------------------------------------------------------------------
@@ -32,7 +32,8 @@ dbc-c:featureCodeList
     a                skos:ConceptScheme ;
     rdfs:label       "Geographic Feature Code List"@en ;
     rdfs:comment     "Controlled list of geographic features and land cover classes that can be referenced as attributes in DBCells observations."@en ;
-    skos:prefLabel   "DBCells Feature Code List"@en .
+    skos:prefLabel   "DBCells Feature Code List"@en ;
+    skos:scopeNote   "The land cover classes (landcover-*) in this list follow the MapBiomas classification scheme and were selected for land use and land cover change modeling in Brazil. Other deployments may extend this list with additional dbc-c:Concept terms as needed."@en .
 
 # -- Infrastructure features
 
