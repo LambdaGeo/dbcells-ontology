@@ -84,6 +84,9 @@ See [`examples/example.ttl`](examples/example.ttl) for a complete example with m
 
 ```
 .
+├── .github/workflows/
+│   ├── gendoc.yml           # validates + regenerates docs/ on push to main
+│   └── validate.yml         # validates vocab/examples on pull requests
 ├── vocab/
 │   ├── dbcells.ttl          # root — Cell class and core properties
 │   ├── dbc-measure.ttl      # measure properties
@@ -93,17 +96,36 @@ See [`examples/example.ttl`](examples/example.ttl) for a complete example with m
 │   └── example.ttl          # usage example
 ├── scripts/
 │   ├── gendoc.py            # generates docs/ using pyLODE
-│   ├── Pipfile
-│   └── Pipfile.lock
+│   ├── validate.py          # validates Turtle syntax + row/col sanity check
+│   └── requirements.txt
 ├── docs/                    # auto-generated — do not edit manually
 └── archive/                 # legacy files — do not use
 ```
 
 ---
 
+## Validating the vocabulary
+
+Every push to `main` and every pull request touching `vocab/**.ttl` or `examples/**.ttl` runs [`scripts/validate.py`](scripts/validate.py), which:
+
+- parses all Turtle files with `rdflib` and fails on any syntax error;
+- checks that `dbc:row` and `dbc:col` are plain integers (grid indices), catching the case where a geographic coordinate is mistakenly used instead of a grid index.
+
+On `main`, this runs as a step in the documentation workflow, before publishing to GitHub Pages, so invalid vocabulary is never deployed.
+
+To run it locally:
+
+```bash
+cd scripts/
+pip install -r requirements.txt
+python validate.py
+```
+
+---
+
 ## Generating documentation
 
-Documentation is generated automatically via [pyLODE](https://github.com/RDFLib/pyLODE) on every push to `main` using GitHub Actions. The generated HTML pages are published via GitHub Pages at:
+Documentation is generated automatically via [pyLODE](https://github.com/RDFLib/pyLODE) on every push to `main` using GitHub Actions (after validation passes). The generated HTML pages are published via GitHub Pages at:
 
 ```
 https://lambdageo.github.io/dbcells-ontology/
@@ -113,8 +135,8 @@ To regenerate locally:
 
 ```bash
 cd scripts/
-pipenv install
-pipenv run python gendoc.py
+pip install -r requirements.txt
+python gendoc.py
 ```
 
 ---
